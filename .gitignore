@@ -5,3 +5,5 @@ archive
 p2pbot
 .env
 *~
+None
+__pycache__

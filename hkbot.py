@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
 ###################################
-# WHAT IS IN THIS EXAMPLE?
-#
-# This bot responds to !test, !joke, !help, !update
-# If it's not responding try !update first in a direct message.
+# p2p bitcoin hk bot for keybase
 ###################################
 
 import asyncio
@@ -145,7 +142,7 @@ async def handler(bot, event):
         username = event.msg.sender.username
         body = event.msg.content.text.body
         print(f'arguments: {body}')
-        id = body.split("!del")[1]
+        id = body.split("!del")[1].strip()
         count = delete_entry(username, id)
         if count == 1:
             msg = f"Ok I've deleted your offer, @{username}"
@@ -154,17 +151,19 @@ async def handler(bot, event):
             msg = f"Sorry I can't find this order ID, @{username}"
             await bot.chat.send(conversation_id, msg)
 
-    if str(event.msg.content.text.body).startswith("!deluser"):
+    if str(event.msg.content.text.body).startswith("!duser"):
         channel = event.msg.channel
         msg_id = event.msg.id
         conversation_id = event.msg.conv_id
         body = event.msg.content.text.body
-        user = body.split("!deluser")[1]
+        user = body.split("!duser")[1].strip()
         count = delete_alldocs_by_user(user)
         if count:
-            msg = "{count} offers by @{username} deleted\n"
+            msg = f"{count} offers by @{username} deleted\n"
             await bot.chat.send(conversation_id, msg)
-
+        else:
+            msg = f"couldn't find offers by @{username}\n"
+            await bot.chat.send(conversation_id, msg)
     
     if f"{os.environ.get('KEYBASE_BOTNAME')}" in str(event.msg.content.text.body).lower():
         channel = event.msg.channel
