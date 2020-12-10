@@ -159,10 +159,10 @@ async def handler(bot, event):
         user = body.split("!duser")[1].strip()
         count = delete_alldocs_by_user(user)
         if count:
-            msg = f"{count} offers by @{username} deleted\n"
+            msg = f"{count} offers by @{user} deleted\n"
             await bot.chat.send(conversation_id, msg)
         else:
-            msg = f"couldn't find offers by @{username}\n"
+            msg = f"couldn't find offers by @{user}\n"
             await bot.chat.send(conversation_id, msg)
     
     if f"{os.environ.get('KEYBASE_BOTNAME')}" in str(event.msg.content.text.body).lower():
