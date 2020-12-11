@@ -39,7 +39,7 @@ async def handler(bot, event):
                              {"name": "help",
                               "description": "Get help using this bot"},
                              {"name": "add",
-                              "description": "Add an Offer to Buy or Sell, Example: \n\nBuy 0.05 btc, %Coinbase\n HKD FPS/ATM/Cash"},
+                              "description": "Add an Offer to Buy or Sell, Example: !add \n\nBuy 0.05 btc, %Coinbase\n HKD FPS/ATM/Cash"},
                              {"name": "all",
                               "description": "List Existing Offers"},
                              {"name": "del",
@@ -69,8 +69,8 @@ async def handler(bot, event):
         help_msg = """```
             Here are the commands I currently am enslaved to:
             !all - List Open Offers.
-            !add - Add an Offer, Ex: Buy 0.05 btc, %Coinbase HKD FPS/ATM/Cash.
-            !del - Delete an offer. !Del [username] [offer_number]
+            !add - Add an Offer, Ex: !add Buy 0.05 btc, %Coinbase HKD FPS/ATM/Cash.
+            !del - Delete an offer (only your offers). Ex: !Del [offer_number]
             !joke - Forces me to tell a joke. For the love of God just don't.
             !help - Prints this list.
             !update - Update's the list of available autocomplete botcommands.
