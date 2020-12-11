@@ -148,7 +148,7 @@ async def handler(bot, event):
             msg = f"Ok I've deleted your offer, @{username}"
             await bot.chat.send(conversation_id, msg)
         else:
-            msg = f"Sorry I can't find this order ID, @{username}"
+            msg = f"Sorry I can't find this order ID, @{username}. Also, You can only delete your own orders, not your friends."
             await bot.chat.send(conversation_id, msg)
 
     if str(event.msg.content.text.body).startswith("!duser"):
@@ -162,7 +162,7 @@ async def handler(bot, event):
             msg = f"{count} offers by @{user} deleted\n"
             await bot.chat.send(conversation_id, msg)
         else:
-            msg = f"couldn't find offers by @{user}\n"
+            msg = f"Couldn't find offers by @{user}\n"
             await bot.chat.send(conversation_id, msg)
     
     if f"{os.environ.get('KEYBASE_BOTNAME')}" in str(event.msg.content.text.body).lower():
@@ -178,7 +178,7 @@ listen_options = {
     # "dev": True,
     "hide-exploding": False,
     "convs": True,
-    "filter_channel": {"name": f"{os.environ.get('TEAM_NAME')}", "topic_name": "test1", "members_type": "team"},
+    "filter_channel": {"name": f"{os.environ.get('TEAM_NAME')}", "topic_name": "general", "members_type": "team"},
     # "filter_channel": None,
     # "filter_channels": None,
 }
