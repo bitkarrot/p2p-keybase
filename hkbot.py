@@ -43,7 +43,7 @@ async def handler(bot, event):
                              {"name": "all",
                               "description": "List Existing Offers"},
                              {"name": "del",
-                              "description": "Delete an Offer: !Del [username] [offer_number]"},
+                              "description": "Delete an Offer (only your own): !Del [offer_number]"},
                              {"name": "joke",
                               "description": "Forces me to tell a programing oriented joke."},
                          ]}]}}}

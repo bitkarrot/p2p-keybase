@@ -7,3 +7,4 @@ p2pbot
 *~
 None
 __pycache__
+*.out
